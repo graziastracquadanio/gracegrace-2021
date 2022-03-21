@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -15,10 +19,14 @@
     "noUnusedLocals": false,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true
   },
   "include": [
     "src"
   ],
-  "exclude": ["node_modules", "public"]
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
 }

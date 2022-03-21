@@ -1,11 +1,13 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
 import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
+    <StyledTest className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -15,8 +17,12 @@ const App = () => {
           Learn React
         </a>
       </header>
-    </div>
+    </StyledTest>
   );
 };
 
 export default App;
+
+const StyledTest = styled.div`
+  border: 1px solid deeppink;
+`;
