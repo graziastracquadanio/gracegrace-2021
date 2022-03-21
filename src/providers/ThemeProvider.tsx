@@ -2,18 +2,19 @@ import React, { createContext, useContext, useState } from 'react';
 
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import { COLOR_MODE_KEY, Color, COLORS_ALL, INITIAL_COLOR_MODE_CSS_PROP } from 'constants/colors';
+import { COLOR_MODE_KEY, COLORS_ALL, INITIAL_COLOR_MODE_CSS_PROP } from 'constants/colors';
+import type { Color } from 'constants/colors';
 
-export type ThemeProps = {
+export interface ThemeProps {
   colorMode: string | null | undefined;
   setColorMode: (newValue: keyof Color) => void;
-};
+}
 
 export const ThemeContext = createContext({} as ThemeProps);
 
 export const useThemeContext = () => useContext(ThemeContext);
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [colorMode, rawSetColorMode] = useState<string | undefined>(undefined);
 
   React.useEffect(() => {
