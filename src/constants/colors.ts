@@ -1,6 +1,6 @@
 export type Color = {
   light: string;
-  dark?: string;
+  dark: string;
 };
 // to use the color variables in css use the prefix `--color` (i.e. `--color-primary`)
 // the colors are based on the theme selected through the ThemeContext
