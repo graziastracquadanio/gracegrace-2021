@@ -1,7 +1,7 @@
-export type Color = {
-  light: string;
-  dark: string;
-};
+export type ColorMode = 'light' | 'dark';
+
+export type Color = Record<ColorMode, string>;
+
 // to use the color variables in css use the prefix `--color` (i.e. `--color-primary`)
 // the colors are based on the theme selected through the ThemeContext
 // https://flatuicolors.com/palette/in

@@ -60,7 +60,6 @@ module.exports = {
           },
         ],
         pathGroupsExcludedImportTypes: ['react'],
-        'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
           caseInsensitive: true,
@@ -74,4 +73,12 @@ module.exports = {
     },
     react: { version: 'detect' },
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
 };

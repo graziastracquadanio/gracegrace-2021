@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+I am going to redo my website again... OMG again!!!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Goals
 
-## Available Scripts
+- [ ] give React another chance to like it or finally learn how to fully appreciate it
+- [ ] learn to configure a React project from start to end (deploy)
+- [ ] deepen my knowledge on philosophy, benefits and best practices of styled components
+- [ ] use Firebase and GraphQL
+- [ ] learn more and more and more best practices
+- [ ] improve my recipes app
+- [ ] play with animations
+- [ ] write journal reader (and content!)
+- [ ] have an excuse to cook and write more recipes 🥦
+- [ ] deploy it at least once before 2022...
+- [ ] enjoy the process and have fun!
 
-In the project directory, you can run:
+# Roadmap
 
-### `npm start`
+- [x] create configuration and styleguide
+  - [x] project configuration (gatsby, webpack, linter, structure, etc...)
+  - [x] base style (typography, colors, spacing, etc...)
+- [x] add "/about" page (static)
+- [ ] add "/contact" page with form
+- [x] add "dark mode" (nice to have)
+  - [x] define dark palette
+  - [x] add mechanism
+  - [x] add toggle animation to button
+- [ ] navigation
+  - [ ] responsive navigation menu
+  - [ ] add transition between pages or animate based on content
+- [ ] add "recipes" (ok this is a big one)
+  - [ ] recipes list
+  - [ ] pagination
+  - [ ] search (by ingredients, by name)
+- [ ] add "recipe" detail page
+  - [x] add layout (based on the Angular app)
+  - [ ] load recipe
+  - [ ] like mechanism (nice to have)
+- [ ] add tags to recipes
+- [ ] add "recipes collections" page
+  - [ ] "/seasons"
+  - [ ] "/occasions" (i.e. "dinner with friends", "aperitivo", "vanlife-friendly", etc...)
+- [ ] add "journal" page
+  - [ ] "list" of entries
+  - [ ] "entry" detail page
+- [ ] add "work/experience" page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Pending issues
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- https://github.com/framer/motion/issues/1307

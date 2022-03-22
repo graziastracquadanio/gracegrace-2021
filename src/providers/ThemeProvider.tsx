@@ -2,11 +2,22 @@ import React, { createContext, useContext, useState } from 'react';
 
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import { COLOR_MODE_KEY, COLORS_ALL, INITIAL_COLOR_MODE_CSS_PROP } from 'constants/colors';
-import type { Color } from 'constants/colors';
+import { COLOR_MODE_KEY, COLORS_ALL } from 'constants/colors';
+import type { ColorMode, Color } from 'constants/colors';
 
+const updateRootColors = (newValue: ColorMode) => {
+  const root = window.document.documentElement;
+  Object.entries(COLORS_ALL).forEach(([name, colorByTheme]) => {
+    const cssVarName = `--color-${name}`;
+    if (colorByTheme[newValue]) {
+      root.style.setProperty(cssVarName, colorByTheme[newValue]);
+    } else {
+      root.style.removeProperty(cssVarName);
+    }
+  });
+};
 export interface ThemeProps {
-  colorMode: string | null | undefined;
+  colorMode: ColorMode;
   setColorMode: (newValue: keyof Color) => void;
 }
 
@@ -15,29 +26,30 @@ export const ThemeContext = createContext({} as ThemeProps);
 export const useThemeContext = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const [colorMode, rawSetColorMode] = useState<string | undefined>(undefined);
+  const [colorMode, rawSetColorMode] = useState<ColorMode>('light');
 
   React.useEffect(() => {
-    const root = window.document.documentElement;
-    const initialColorValue = root.style.getPropertyValue(INITIAL_COLOR_MODE_CSS_PROP);
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDarkFromMQ = mql.matches;
+    const persistedPreference = localStorage.getItem(COLOR_MODE_KEY);
 
-    rawSetColorMode(initialColorValue);
+    let initialColorValue: ColorMode;
+    if (persistedPreference) {
+      initialColorValue = persistedPreference as ColorMode;
+    } else {
+      initialColorValue = prefersDarkFromMQ ? 'dark' : 'light';
+    }
+
+    if (initialColorValue) {
+      rawSetColorMode(initialColorValue);
+      updateRootColors(initialColorValue);
+    }
   }, []);
 
   const contextValue = React.useMemo(() => {
-    function setColorMode(newValue: keyof Color) {
-      const root = window.document.documentElement;
-
+    function setColorMode(newValue: ColorMode) {
       localStorage.setItem(COLOR_MODE_KEY, newValue);
-      Object.entries(COLORS_ALL).forEach(([name, colorByTheme]) => {
-        const cssVarName = `--color-${name}`;
-        if (colorByTheme[newValue]) {
-          root.style.setProperty(cssVarName, colorByTheme[newValue]);
-        } else {
-          root.style.removeProperty(cssVarName);
-        }
-      });
-
+      updateRootColors(newValue);
       rawSetColorMode(newValue);
     }
 

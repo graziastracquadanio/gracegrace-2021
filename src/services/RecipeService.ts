@@ -19,9 +19,10 @@ export class RecipeService {
   query = async (search: string) => {
     const q = query(collection(this.db, 'recipes-with-details'), where('ingredients', 'array-contains', search));
     const querySnapshot = await getDocs(q);
-    console.log(querySnapshot);
     querySnapshot.forEach((d) => {
       // doc.data() is never undefined for query doc snapshots
+
+      // eslint-disable-next-line no-console
       console.log(d.id, ' => ', d.data());
     });
   };
