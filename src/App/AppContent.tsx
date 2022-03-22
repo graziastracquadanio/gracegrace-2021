@@ -6,6 +6,7 @@ import { AppRouter } from './AppRouter';
 import { Icon } from 'components/Icon';
 import { LoadingIndicator } from 'components/LoadingIndicator';
 import { Navigation } from 'components/Navigation';
+import { Notificator } from 'components/Notificator';
 import { BREAKPOINTS } from 'constants/css-variables';
 
 export const AppContent = () => {
@@ -15,6 +16,7 @@ export const AppContent = () => {
       <LayoutContainer>
         <ContentLimiterContainer>
           <Navigation />
+          <Notificator />
           <Suspense fallback={<LoadingIndicator />}>
             <AppRouter />
           </Suspense>
