@@ -3,7 +3,11 @@ import React, { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 const AboutPageComponent = lazy(() => import('views/AboutPage'));
+const ContactPageComponent = lazy(() => import('views/ContactPage'));
 const LoginPageComponent = lazy(() => import('views/LoginPage'));
+const NotFoundPageComponent = lazy(() => import('views/NotFoundPage'));
+const RecipePageComponent = lazy(() => import('views/RecipePage'));
+const RecipesListPageComponent = lazy(() => import('views/RecipesListPage'));
 const ResumePageComponent = lazy(() => import('views/ResumePage'));
 const StyleguidePageComponent = lazy(() => import('views/StyleguidePage'));
 
@@ -14,5 +18,9 @@ export const AppRouter = () => (
     <Route path="/styleguide" element={<StyleguidePageComponent />} />
     <Route path="/about" element={<AboutPageComponent />} />
     <Route path="/about/resume" element={<ResumePageComponent />} />
+    <Route path="/contact" element={<ContactPageComponent />} />
+    <Route path="/recipes" element={<RecipesListPageComponent />} />
+    <Route path="/recipes/:recipeId" element={<RecipePageComponent />} />
+    <Route path="*" element={<NotFoundPageComponent />} />
   </Routes>
 );
