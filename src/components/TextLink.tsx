@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { NavLink } from 'react-router-dom';
 import type { NavLinkProps } from 'react-router-dom';
@@ -6,17 +6,14 @@ import styled from 'styled-components';
 
 import { LinkStyle } from './GlobalStyle/LinkStyle';
 
-interface Props extends NavLinkProps {
-  to: string;
-  activeClassName?: string;
-}
+type Props = NavLinkProps | React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const TextLink = ({ to, activeClassName, ...other }: Props) => {
-  const external = /^https?:\/\//.test(to);
-  return external ? (
-    <ExternalLink href={to} target="_blank" />
-  ) : (
-    <InternalLink to={to} className={activeClassName} {...other} />
+const isInternal = (link: Props): link is NavLinkProps => (link as NavLinkProps).to !== undefined;
+
+export const TextLink = (props: Props) => {
+  return useMemo(
+    () => (isInternal(props) ? <InternalLink {...props} /> : <ExternalLink target="_blank" {...props} />),
+    [props],
   );
 };
 

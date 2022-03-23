@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-// import { RecipeView } from 'views/RecipeView';
+import { RecipeView } from './RecipeView';
 import { useRootStore } from 'providers/RootStoreProvider';
 import { Recipe } from 'types/recipe';
 
@@ -34,8 +34,7 @@ export const RecipePage = observer(function RecipePage() {
   if (recipe && recipe.id === id) {
     return (
       <>
-        {recipe.title}
-        {/* <RecipeView {...recipe} /> */}
+        <RecipeView recipe={recipe} />
         {authStore.isLoggedIn && (
           <Footer>
             <Link to="edit">Edit recipe</Link>
