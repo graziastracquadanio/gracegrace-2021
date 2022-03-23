@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import thumbFallback from 'assets/thumb-fallback.png';
 import { TextLink } from 'components/TextLink';
 import { BREAKPOINTS } from 'constants/css-variables';
 import { useRootStore } from 'providers/RootStoreProvider';
@@ -20,7 +22,7 @@ export const RecipesListItem = ({ recipe, onTagClick }: Props) => {
   return (
     <Container>
       <ThumbContainer to={`/recipes/${id}`}>
-        <Thumb alt={title} src={thumb || '/assets/fallback.png'} loading="lazy" />
+        <Thumb alt={title} src={thumb || thumbFallback} loading="lazy" />
       </ThumbContainer>
       <Details>
         <Title>
