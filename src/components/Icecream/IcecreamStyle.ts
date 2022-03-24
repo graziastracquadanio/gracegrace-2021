@@ -8,10 +8,15 @@ import { css } from 'styled-components';
 export const IcecreamStyle = css`
   .icecream-container {
     --drop-delay: 3s;
+
+    * {
+      transition: background-color 0.5s linear, border-radius 0.5s linear;
+    }
   }
 
   .icecream-container {
-    width: 225px;
+    width: 100%;
+    max-width: 225px;
     height: 500px;
     display: flex;
     flex-direction: column;
@@ -205,6 +210,10 @@ export const IcecreamStyle = css`
     position: relative;
     border-radius: 10% 10% 0 0;
     overflow: hidden;
+
+    @media (max-width: 450px) {
+      border-radius: 50% 50% 0 0;
+    }
   }
 
   .icecream-container .icecream-face-mounth:after {
@@ -214,12 +223,16 @@ export const IcecreamStyle = css`
   }
 
   .icecream-container .icecream-face-mounth_inner {
-    background: var(--icecream-darker-color);
+    background: var(--icecream-face-color);
     border-radius: 0 0 50% 50%;
     position: absolute;
     bottom: 0;
     width: 100%;
     overflow: hidden;
+
+    @media (max-width: 450px) {
+      border-radius: 50% 50% 0 0;
+    }
   }
 
   .icecream-container .icecream-face-mounth_inner:after {
@@ -247,7 +260,7 @@ export const IcecreamStyle = css`
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: var(--icecream-darker-color);
+    background-color: var(--icecream-face-color);
     animation: eyesAnimation 4s ease-out infinite 1s;
   }
 

@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { ButtonsSection } from './ButtonsSection';
 import { ColorsSection } from './ColorsSection';
 import { MarkdownSection } from './MarkdownSection';
+import { Section } from './Section';
 import { TypographySection } from './TypographySection';
+import { Icecream } from 'components/Icecream';
 
 export const StyleguidePage = () => (
   <LayoutContainer>
@@ -13,6 +15,9 @@ export const StyleguidePage = () => (
     <TypographySection />
     <MarkdownSection />
     <ButtonsSection />
+    <Section title="Icecream">
+      <Icecream />
+    </Section>
   </LayoutContainer>
 );
 
