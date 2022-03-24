@@ -32,6 +32,10 @@ export const RecipesListPage = observer(function RecipesListPage() {
   const [selectedTags, setSelectedTags] = useState<string[]>(preselectedTags);
 
   useEffect(() => {
+    recipeStore.fetchRecipesIfNeeded();
+  }, [recipeStore]);
+
+  useEffect(() => {
     if (search.length || selectedTags.length) {
       const result = filterRecipes(recipeStore.recipes, search, selectedTags);
       setRecipes(result);

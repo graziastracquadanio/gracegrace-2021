@@ -17,8 +17,10 @@ export class RecipeStore {
     this.uiStore = uiStore;
   }
 
-  init = () => {
-    this.fetchRecipes();
+  fetchRecipesIfNeeded = () => {
+    if (!this.recipes.length) {
+      this.fetchRecipes();
+    }
   };
 
   fetchRecipes = async () => {

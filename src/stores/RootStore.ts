@@ -20,7 +20,6 @@ export class RootStore {
     this.recipeStore = new RecipeStore(this);
     this.tagsStore = new TagsStore(this);
 
-    this.recipeStore.init();
     this.tagsStore.init();
   }
 }
