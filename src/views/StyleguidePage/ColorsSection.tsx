@@ -65,10 +65,15 @@ const Subsection = styled.div`
 
 const ColorsList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   column-gap: 1em;
-  row-gap: 1em;
+  row-gap: 0.5em;
+
+  @media (min-width: ${BREAKPOINTS.medium}) {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1em;
+  }
 
   @media (min-width: ${BREAKPOINTS.large}) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

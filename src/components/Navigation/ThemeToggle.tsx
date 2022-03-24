@@ -48,7 +48,11 @@ const sunPathTransition = {
   damping: 300,
 };
 
-export const ThemeToggle = () => {
+interface Props {
+  className?: string;
+}
+
+export const ThemeToggle = ({ className }: Props) => {
   const { colorMode, setColorMode } = useThemeContext();
   const [properties, setProperties] = useState<Properties>(propertiesByTheme.light);
 
@@ -65,7 +69,7 @@ export const ThemeToggle = () => {
   const { r, rotate, cx, cy, delay, scale } = properties;
 
   return (
-    <ToggleButton onClick={toggleColorMode}>
+    <ToggleButton className={className} onClick={toggleColorMode}>
       <StyledSvg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

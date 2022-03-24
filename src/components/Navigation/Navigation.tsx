@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 import { LogoutButton } from './LogoutButton';
 import { NavigationItemLink } from './NavigationItemLink';
-import { NavigationMobileLink } from './NavigationMobileLink';
 import { ThemeToggle } from './ThemeToggle';
 import { BREAKPOINTS, ZINDEX } from 'constants/css-variables';
 import { useRootStore } from 'providers/RootStoreProvider';
@@ -25,19 +24,17 @@ export const Navigation = observer(function Navigation() {
           delay: 1,
         }}
       >
-        <NavigationItemLink to="/about">About</NavigationItemLink>
-        <NavigationItemLink to="/recipes">Recipes</NavigationItemLink>
-        <OnlyDesktopLink to="/styleguide">Styleguide</OnlyDesktopLink>
-        <NavigationItemLink to="/contact">Contact</NavigationItemLink>
-        <NavigationSpacer />
+        <NavigationSection>
+          <NavigationItemLink to="/about">About</NavigationItemLink>
+          <NavigationItemLink to="/recipes">Recipes</NavigationItemLink>
+          <NavigationItemLink to="/styleguide">Styleguide</NavigationItemLink>
+          <NavigationItemLink to="/contact">Contact</NavigationItemLink>
+        </NavigationSection>
 
-        {authStore.isLoggedIn && (
-          <>
-            <StyledLogoutButton onClick={authStore.logout} />
-            <NavigationMobileLink icon="code" to="/styleguide" />
-          </>
-        )}
-        <StyledThemeToggle />
+        <NavigationSection wrap="no-wrap">
+          {authStore.isLoggedIn && <StyledLogoutButton onClick={authStore.logout} />}
+          <StyledThemeToggle />
+        </NavigationSection>
       </NavigationList>
     </NavigationContainer>
   );
@@ -47,12 +44,16 @@ const NavigationContainer = styled.nav`
   width: 100%;
   padding: 0.75em 0 1rem;
   margin-top: 8px;
-  position: sticky;
-  top: 0;
   display: flex;
   justify-content: center;
   z-index: ${ZINDEX.navigationMenu};
   overflow: hidden;
+  position: relative;
+  top: 0;
+
+  @media (min-width: ${BREAKPOINTS.medium}) {
+    position: sticky;
+  }
 
   &:before {
     content: '';
@@ -68,21 +69,27 @@ const NavigationContainer = styled.nav`
   }
 `;
 
-const OnlyDesktopLink = styled(NavigationItemLink)`
-  @media (max-width: ${BREAKPOINTS.medium}) {
-    display: none;
-  }
-`;
-
 const NavigationList = styled(motion.div)`
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1em;
+  align-items: flex-start;
+
+  @media (min-width: ${BREAKPOINTS.medium}) {
+    align-items: center;
+  }
 `;
 
-const NavigationSpacer = styled.span`
-  flex: 1;
+const NavigationSection = styled.div<{ wrap?: 'wrap' | 'no-wrap' }>`
+  display: flex;
+  flex-wrap: ${(props) => props.wrap || 'wrap'};
+  gap: 0 0.5em;
+
+  @media (min-width: ${BREAKPOINTS.medium}) {
+    gap: 1em;
+  }
 `;
 
 const StyledLogoutButton = styled(LogoutButton)`
@@ -91,4 +98,5 @@ const StyledLogoutButton = styled(LogoutButton)`
 
 const StyledThemeToggle = styled(ThemeToggle)`
   height: 2rem;
+  width: 2rem;
 `;

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { BREAKPOINTS } from 'constants/css-variables';
 
 export const NavigationItemLink = styled(NavLink)`
   --navigation-link-transition: 0.2s linear 0.15s;
@@ -9,13 +10,17 @@ export const NavigationItemLink = styled(NavLink)`
   position: relative;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-primary);
-  font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   user-select: none;
   padding: 0.5rem 0.2rem;
   color: var(--navigation-link-color);
+  font-size: 0.8rem;
+
+  @media (min-width: ${BREAKPOINTS.medium}) {
+    font-size: 1rem;
+  }
 
   &:hover,
   &.active {
