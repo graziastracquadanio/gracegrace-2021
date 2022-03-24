@@ -2,11 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 import { debounce } from 'lodash';
 import { observer } from 'mobx-react-lite';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { RecipesListItem } from './RecipesListItem';
 import { RecipesSearch } from './RecipesSearch';
+import { Button } from 'components/Button';
 import { Tag } from 'components/Tag';
 import { BREAKPOINTS } from 'constants/css-variables';
 import { useRootStore } from 'providers/RootStoreProvider';
@@ -19,6 +20,7 @@ interface RecipesPageState {
 
 export const RecipesListPage = observer(function RecipesListPage() {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const preselectedTags = (state as RecipesPageState)?.selectedTags || [];
   const {
     authStore: { isLoggedIn: superMode },
@@ -80,7 +82,11 @@ export const RecipesListPage = observer(function RecipesListPage() {
       )}
 
       <Sidebar>
-        {superMode && <Link to="new">Add new recipe</Link>}
+        {superMode && (
+          <Actions>
+            <Button onClick={() => navigate('/recipes/new')}>Add new recipe</Button>
+          </Actions>
+        )}
         {tags && (
           <Tags>
             {tags.map((tag) => (
@@ -172,4 +178,9 @@ const ListItem = styled.li<{ pending: boolean }>`
   margin-bottom: 1rem;
   border: 2px dashed;
   border-color: ${(props) => (props.pending ? 'var(--color-highlight)' : 'transparent')};
+`;
+
+const Actions = styled.div`
+  display: flex;
+  justify-content: center;
 `;

@@ -1,15 +1,37 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { TextLink } from 'components/TextLink';
 
 const ResumePage = () => (
   <Container>
-    <li>This is my experience so far as developer.</li>
+    <li>
+      <p>
+        I am specialised in building cool things coding with <b>HTML</b>, <b>CSS</b> and <b>javascript</b>. I have also
+        worked in different Agile teams using <b>Scrum</b> or <b>Kanban</b>, and sometimes a combination of both.
+      </p>
+      <p>
+        If you think you might have any interesting project to propose, why don&apos;t you say hello{' '}
+        <TextLink to="/contact">here</TextLink>?
+      </p>
+    </li>
+    <li>
+      <h5>freelance frontend developer</h5>
+      <h6>
+        <span>#react</span> <span>#typescript</span> <span>#mobx</span>
+      </h6>
+      <p>
+        <em>Remote, January 2022 – present</em>
+      </p>
+      <p>
+        I am currently working as freelance for <TextLink href="https://www.bookinglayer.com/">BookingLayer</TextLink>.
+      </p>
+    </li>
     <li>
       <h5>
-        Senior Frontend developer @{' '}
+        senior frontend developer @{' '}
         <a href="https://www.xing.com/" target="_blank" rel="noreferrer">
-          Xing
+          XING
         </a>{' '}
         part of{' '}
         <a href="https://www.new-work.se/en/about-new-work-se" target="_blank" rel="noreferrer">
@@ -31,7 +53,7 @@ const ResumePage = () => (
 
     <li>
       <h5>
-        Senior Frontend developer and architect @{' '}
+        senior frontend developer and architect @{' '}
         <a href="https://forwardkeys.com/" target="_blank" rel="noreferrer">
           ForwardKeys
         </a>
@@ -53,7 +75,7 @@ const ResumePage = () => (
 
     <li>
       <h5>
-        Senior Frontend developer @{' '}
+        senior frontend developer @{' '}
         <a href="https://www.hmhco.com/" target="_blank" rel="noreferrer">
           Houghton Mifflin Harcourt
         </a>
@@ -73,7 +95,7 @@ const ResumePage = () => (
     </li>
     <li>
       <h5>
-        Frontend developer @{' '}
+        frontend developer @{' '}
         <a href="https://sysnetgs.com/" target="_blank" rel="noreferrer">
           Sysnet Global Solution
         </a>
@@ -92,7 +114,7 @@ const ResumePage = () => (
     </li>
     <li>
       <h5>
-        Frontend developer @{' '}
+        frontend developer @{' '}
         <a href="https://ped.company/" target="_blank" rel="noreferrer">
           Pane&Design
         </a>
@@ -110,7 +132,7 @@ const ResumePage = () => (
       </p>
     </li>
     <li>
-      <h5>Web developer/iOS developer/Graphic designer @ Neperia Group / PaperCopy Design / Freelance</h5>
+      <h5>web developer/iOS developer/Graphic designer @ Neperia Group / PaperCopy Design / freelance</h5>
       <p>
         <em>ITALY, February 2012 – January 2014</em>
       </p>

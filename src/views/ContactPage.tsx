@@ -66,7 +66,7 @@ const ContactPage = observer(function ContactPage() {
           form below or send a message directly <TextLink to="mailto:graziastracquadanio@gmail.com">here</TextLink>.
         </h5>
       </Header>
-      <Form method="post" action="https://getform.io/f/abb127f9-d25d-4b30-b33a-b63647f2dfe1">
+      <Form method="post" action={process.env.REACT_APP_MAIL_ENDPOINT}>
         <FormControl label="Your name" htmlFor="name" {...(touched.name && errors.name && { error: errors.name })}>
           <Input
             id="name"

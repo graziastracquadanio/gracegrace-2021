@@ -3,11 +3,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { BREAKPOINTS } from 'constants/css-variables';
+import type { Palette } from 'types/colors';
 
 type Size = 'small' | 'medium' | undefined;
 
 interface Props extends React.ComponentPropsWithoutRef<'button'> {
-  variant?: string;
+  variant?: Palette;
   size?: Size;
 }
 

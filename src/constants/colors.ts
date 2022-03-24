@@ -1,13 +1,12 @@
-export type ColorMode = 'light' | 'dark';
-
-export type Color = Record<ColorMode, string>;
+import type { Color, Palette } from 'types/colors';
 
 // to use the color variables in css use the prefix `--color` (i.e. `--color-primary`)
 // the colors are based on the theme selected through the ThemeContext
 // https://flatuicolors.com/palette/in
 // https://coolors.co/
 // https://mycolor.space/?hex=%23BF538D&sub=1
-export const PALETTE: Record<string, Color> = {
+
+export const PALETTE: Record<Palette, Color> = {
   'primary-dark': {
     // light: '#00243e',
     light: '#8F71A0',

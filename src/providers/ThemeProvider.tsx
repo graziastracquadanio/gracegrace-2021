@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { COLOR_MODE_KEY, COLORS_ALL } from 'constants/colors';
-import type { ColorMode, Color } from 'constants/colors';
+import type { ColorMode, Color } from 'types/colors';
 
 const updateRootColors = (newValue: ColorMode) => {
   const root = window.document.documentElement;

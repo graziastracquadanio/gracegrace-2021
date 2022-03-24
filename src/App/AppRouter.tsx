@@ -10,6 +10,7 @@ const RecipePageComponent = lazy(() => import('views/RecipePage'));
 const RecipesListPageComponent = lazy(() => import('views/RecipesListPage'));
 const ResumePageComponent = lazy(() => import('views/ResumePage'));
 const StyleguidePageComponent = lazy(() => import('views/StyleguidePage'));
+const RecipeEditPageComponent = lazy(() => import('views/RecipeEditPage'));
 
 export const AppRouter = () => (
   <Routes>
@@ -20,7 +21,9 @@ export const AppRouter = () => (
     <Route path="/about/resume" element={<ResumePageComponent />} />
     <Route path="/contact" element={<ContactPageComponent />} />
     <Route path="/recipes" element={<RecipesListPageComponent />} />
+    <Route path="/recipes/new" element={<RecipeEditPageComponent />} />
     <Route path="/recipes/:recipeId" element={<RecipePageComponent />} />
+    <Route path="/recipes/:recipeId/edit" element={<RecipeEditPageComponent />} />
     <Route path="*" element={<NotFoundPageComponent />} />
   </Routes>
 );
