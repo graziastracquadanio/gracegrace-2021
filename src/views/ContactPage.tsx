@@ -117,7 +117,7 @@ const ContactPage = observer(function ContactPage() {
           <li>
             <h6>
               Github:{' '}
-              <TextLink to="https://github.com/graziastracquadanio" rel="noreferrer">
+              <TextLink href="https://github.com/graziastracquadanio" rel="noreferrer">
                 graziastracquadanio
               </TextLink>
             </h6>
@@ -125,7 +125,7 @@ const ContactPage = observer(function ContactPage() {
           <li>
             <h6>
               Codepen:{' '}
-              <TextLink to="https://codepen.io/graziastrax" rel="noreferrer">
+              <TextLink href="https://codepen.io/graziastrax" rel="noreferrer">
                 graziastrax
               </TextLink>
             </h6>
@@ -133,7 +133,7 @@ const ContactPage = observer(function ContactPage() {
           <li>
             <h6>
               Linkedin:{' '}
-              <TextLink to="https://www.linkedin.com/in/graziastracquadanio/en/" rel="noreferrer">
+              <TextLink href="https://www.linkedin.com/in/graziastracquadanio/en/" rel="noreferrer">
                 graziastracquadanio
               </TextLink>
             </h6>
@@ -141,7 +141,7 @@ const ContactPage = observer(function ContactPage() {
           <li>
             <h6>
               Instagram:{' '}
-              <TextLink to="https://www.instagram.com/finding_grace__/" rel="noreferrer">
+              <TextLink href="https://www.instagram.com/finding_grace__/" rel="noreferrer">
                 finding_grace__
               </TextLink>
             </h6>

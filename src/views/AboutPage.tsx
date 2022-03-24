@@ -22,11 +22,11 @@ const AboutPage = () => (
       </StyledH6>
       <StyledH6>
         Sometimes I like{' '}
-        <TextLink to="https://codepen.io/graziastrax" target="_blank" rel="noreferrer">
+        <TextLink href="https://codepen.io/graziastrax" rel="noreferrer">
           drawing with code
         </TextLink>
         , some other times{' '}
-        <TextLink to="https://www.instagram.com/sialokesia/" target="_blank" rel="noreferrer">
+        <TextLink href="https://www.instagram.com/sialokesia/" rel="noreferrer">
           I whittle little weirdos
         </TextLink>
         .<br />
