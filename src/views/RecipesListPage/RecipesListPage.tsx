@@ -85,6 +85,10 @@ export const RecipesListPage = observer(function RecipesListPage() {
         </List>
       )}
 
+      {list.length === 0 && (search.length > 0 || selectedTags.length > 0) && (
+        <NoResults>Nothing found here...</NoResults>
+      )}
+
       <Sidebar>
         {superMode && (
           <Actions>
@@ -120,11 +124,13 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
   grid-template-areas: 'header' 'sidebar' 'list' 'tip';
+  grid-template-rows: [row1-start] auto [row1-end row2-start] auto [row2-end row3-start] minmax(1rem, 1fr) [row3-end];
   grid-gap: 1em;
 
   @media (min-width: ${BREAKPOINTS.large}) {
     grid-template-columns: auto 16rem;
     grid-template-areas: 'header .' 'tip sidebar' 'list sidebar';
+    grid-template-rows: [row1-start] auto [row1-end row2-start] auto [row2-end row3-start] minmax(1rem, 1fr) [row3-end];
   }
 `;
 
@@ -173,6 +179,13 @@ const List = styled.ul`
   @media (min-width: ${BREAKPOINTS.medium}) {
     column-width: 16rem;
   }
+`;
+
+const NoResults = styled.h5`
+  grid-area: list;
+  width: 100%;
+  text-align: center;
+  min-height: 10rem;
 `;
 
 const ListItem = styled.li<{ pending: boolean }>`

@@ -84,7 +84,6 @@ const Container = styled.div`
 
   @media (min-width: ${BREAKPOINTS.medium}) {
     grid-template-columns: 16rem auto 16rem;
-    grid-template-rows: [row1-start] auto [row1-end row2-start] minmax(1rem, 1fr) [row2-end row3-start] auto [row3-end];
     grid-row-gap: 1em;
     grid-column-gap: 2em;
     grid-template-areas:
