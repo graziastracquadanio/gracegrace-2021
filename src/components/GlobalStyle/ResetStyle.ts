@@ -19,7 +19,8 @@ const ResetStyle = css`
     margin: 0;
     background-color: var(--color-background);
     transition: background var(--theme-transition);
-    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
 
     @media (min-width: ${BREAKPOINTS.medium}) {
       word-break: normal;
