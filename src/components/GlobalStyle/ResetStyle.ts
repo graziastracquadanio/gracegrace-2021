@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { BREAKPOINTS } from 'constants/css-variables';
 
 const ResetStyle = css`
   *,
@@ -18,6 +19,11 @@ const ResetStyle = css`
     margin: 0;
     background-color: var(--color-background);
     transition: background var(--theme-transition);
+    word-break: break-all;
+
+    @media (min-width: ${BREAKPOINTS.medium}) {
+      word-break: normal;
+    }
   }
 
   [tabindex='-1']:focus {

@@ -15,8 +15,11 @@ export const StyleguidePage = () => (
     <TypographySection />
     <MarkdownSection />
     <ButtonsSection />
-    <Section title="Icecream">
-      <Icecream />
+    <Section title="Ice cream">
+      <p>Pure HTML and CSS animated little ice cream. Click to change flavor or resize to see weird things.</p>
+      <IceCreamContainer>
+        <Icecream />
+      </IceCreamContainer>
     </Section>
   </LayoutContainer>
 );
@@ -24,4 +27,10 @@ export const StyleguidePage = () => (
 const LayoutContainer = styled.div`
   display: grid;
   grid-gap: 1em;
+`;
+
+const IceCreamContainer = styled.div`
+  border: 2px dashed var(--color-highlight);
+  resize: horizontal;
+  overflow: hidden;
 `;

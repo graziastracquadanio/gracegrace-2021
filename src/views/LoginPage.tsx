@@ -64,7 +64,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 0.5rem;
 `;
 
 const Form = styled.form`

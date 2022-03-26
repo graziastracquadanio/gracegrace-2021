@@ -34,6 +34,7 @@ export const IcecreamStyle = css`
     right: -3%;
     border-radius: 50%;
     animation: spotAnimation 5s linear infinite var(--drop-delay);
+    animation-play-state: var(--icecream-animation-play-state);
   }
 
   @keyframes spotAnimation {
@@ -63,8 +64,8 @@ export const IcecreamStyle = css`
   .icecream-container .icecream-drops {
     position: absolute;
     width: 30%;
-    height: 45%;
-    top: 91%;
+    height: 35%;
+    top: 100%;
     right: 0;
     display: flex;
     flex-direction: row-reverse;
@@ -75,10 +76,11 @@ export const IcecreamStyle = css`
     width: 100%;
     background-color: var(--icecream-color);
     position: absolute;
-    top: 100%;
+    top: -30%;
     border-radius: 50%;
     transform: translateY(-50%);
     animation: fallingDrop 5s ease-in infinite var(--drop-delay);
+    animation-play-state: var(--icecream-animation-play-state);
   }
 
   .icecream-container .icecream-drops-falling_drop:after {
@@ -93,40 +95,26 @@ export const IcecreamStyle = css`
 
   .icecream-container .icecream-drops-first {
     width: 25%;
-    height: 30%;
+    height: 14%;
     background-color: var(--icecream-color);
     position: relative;
-  }
-
-  .icecream-container .icecream-drops-first_end {
-    width: 100%;
-    background-color: var(--icecream-color);
-    position: absolute;
-    top: 100%;
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icecream-container .icecream-drops-first_end:after {
-    content: '';
-    display: block;
-    padding-top: 100%;
+    border-radius: 0 0 100px 100px;
   }
 
   .icecream-container .icecream-drops-first_space {
     width: 25%;
-    height: 25%;
+    height: 10%;
     background-color: var(--icecream-color);
     position: relative;
   }
 
   .icecream-container .icecream-drops-first_space_end {
-    width: 100%;
-    background-color: var(--icecream-background-color);
     position: absolute;
-    top: 100%;
-    border-radius: 50%;
-    transform: translateY(-50%);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--icecream-background-color);
+    border-radius: 100px 100px 0 0;
   }
 
   .icecream-container .icecream-drops-first_space_end:after {
@@ -137,58 +125,43 @@ export const IcecreamStyle = css`
 
   .icecream-container .icecream-drops-second {
     width: 25%;
-    height: 40%;
+    height: 17%;
     background-color: var(--icecream-color);
     position: relative;
-  }
-
-  .icecream-container .icecream-drops-second_end {
-    width: 100%;
-    background-color: var(--icecream-color);
-    position: absolute;
-    top: 100%;
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icecream-container .icecream-drops-second_end:after {
-    content: '';
-    display: block;
-    padding-top: 100%;
+    border-radius: 0 0 100px 100px;
   }
 
   .icecream-container .icecream-drops-second_space {
     width: 25%;
-    height: 25.5%;
+    height: 10%;
     background-color: var(--icecream-color);
     position: relative;
   }
 
   .icecream-container .icecream-drops-second_space_end {
     width: 100%;
-    background-color: var(--icecream-background-color);
+    height: 100%;
     position: absolute;
-    top: 100%;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    border-radius: 0 50% 50% 50%;
-  }
-
-  .icecream-container .icecream-drops-second_space_end:after {
-    content: '';
-    display: block;
-    padding-top: 100%;
+    top: 0;
+    border-radius: 0 100px 0 0;
+    background-color: var(--icecream-background-color);
   }
 
   @keyframes fallingDrop {
     0% {
-      top: 0%;
+      top: -30%;
+      transform: scaleY(1);
+    }
+    19%{
+      transform: scaleY(1);
     }
     20% {
-      top: 350%;
+      transform: scaleY(0);
+      top: 1000%;
     }
     100% {
-      top: 350%;
+      transform: scaleY(0);
+      top: 1000%;
     }
   }
 
@@ -204,44 +177,44 @@ export const IcecreamStyle = css`
     align-items: center;
   }
 
-  .icecream-container .icecream-face-mounth {
+  .icecream-container .icecream-face-mouth {
     width: 30%;
     margin-top: 10%;
     position: relative;
-    border-radius: 10% 10% 0 0;
     overflow: hidden;
+    border-radius: 50% 50% 0 0; /* sad face :( */
 
-    @media (max-width: 450px) {
-      border-radius: 50% 50% 0 0;
+    @media (min-width: 360px) {
+      border-radius: 10% 10% 0 0; /* happy face :) */
     }
   }
 
-  .icecream-container .icecream-face-mounth:after {
+  .icecream-container .icecream-face-mouth:after {
     content: '';
     display: block;
     padding-top: 60%;
   }
 
-  .icecream-container .icecream-face-mounth_inner {
+  .icecream-container .icecream-face-mouth_inner {
     background: var(--icecream-face-color);
-    border-radius: 0 0 50% 50%;
     position: absolute;
     bottom: 0;
     width: 100%;
     overflow: hidden;
+    border-radius: 50% 50% 0 0; /* sad face :( */
 
-    @media (max-width: 450px) {
-      border-radius: 50% 50% 0 0;
+    @media (min-width: 360px) {
+      border-radius: 0 0 50% 50%; /* happy face :) */
     }
   }
 
-  .icecream-container .icecream-face-mounth_inner:after {
+  .icecream-container .icecream-face-mouth_inner:after {
     content: '';
     display: block;
     padding-top: 100%;
   }
 
-  .icecream-container .icecream-face-mounth_tongue {
+  .icecream-container .icecream-face-mouth_tongue {
     width: 100%;
     height: 100%;
     background-color: var(--icecream-tongue-color);
@@ -262,6 +235,7 @@ export const IcecreamStyle = css`
     border-radius: 50%;
     background-color: var(--icecream-face-color);
     animation: eyesAnimation 4s ease-out infinite 1s;
+    animation-play-state: var(--icecream-animation-play-state);
   }
 
   @keyframes eyesAnimation {
@@ -337,7 +311,7 @@ export const IcecreamStyle = css`
     height: 50%;
     width: 100%;
     background-color: var(--icecream-color);
-    border-radius: 0 0 10% 10%;
+    border-radius: 0 0 0 10%;
     z-index: 0;
   }
 
@@ -348,6 +322,7 @@ export const IcecreamStyle = css`
     border-radius: 50%;
     opacity: 0;
     animation: biteAnimation 0.5s forwards 2s;
+    animation-play-state: var(--icecream-animation-play-state);
   }
 
   .icecream-container .icecream-bite_first:after,
@@ -426,11 +401,4 @@ export const IcecreamStyle = css`
     content: '';
     display: block;
     padding-top: 20%;
-  }
-  body {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-  }
 `;
