@@ -31,14 +31,19 @@ export const NavigationItemLink = styled(NavLink)`
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 5px;
     width: 100%;
-    height: 3px;
+    height: 2px;
     transform-origin: 50% 50%;
     transform: scaleX(0);
     transition: color var(--theme-transition), background var(--theme-transition),
       transform var(--navigation-link-transition);
     background-color: var(--navigation-link-color);
+
+    @media (min-width: ${BREAKPOINTS.medium}) {
+      height: 3px;
+      bottom: 0;
+    }
   }
 
   &:hover:after,
